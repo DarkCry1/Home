@@ -1,21 +1,240 @@
 <!doctype html><html lang="sv"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#294f3e"><title>Hemma — ditt skafferi, i fickan</title><style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 *{box-sizing:border-box}body{margin:0;background:#faf9f6;color:#273f34;font:14px 'DM Sans',sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #df9c53;outline-offset:3px}aside{position:fixed;inset:0 auto 0 0;width:238px;background:#f0f1e9;padding:38px 24px;display:flex;flex-direction:column;border-right:1px solid #e2e5dc}.brand{font:800 35px Manrope,sans-serif;letter-spacing:-2px;color:#294f3e;text-decoration:none}.brand span{display:block;font:10px 'DM Sans';letter-spacing:0;margin-top:8px;color:#7b8377}nav{margin-top:56px}nav button{width:100%;text-align:left;border:0;background:none;padding:15px;border-radius:9px;color:#697768;margin:4px 0}nav button.active{background:#dfe7d9;color:#294f3e;font-weight:700}nav b{float:right;background:#fff8;border-radius:5px;padding:0 5px}.asidebottom{margin-top:auto;font-size:13px}.asidebottom small{display:block;color:#879183;margin-top:8px;font-size:11px}main{max-width:1450px;margin-left:238px;padding:32px 48px}header{display:flex;justify-content:space-between;font-size:10px;letter-spacing:1.4px;color:#7f877c}.local{letter-spacing:0;color:#638163}.intro{position:relative;margin-top:35px;background:#e9eddf;border-radius:16px;padding:36px 38px;overflow:hidden;display:flex;justify-content:space-between;min-height:245px}.eyebrow{font-size:10px;letter-spacing:2px;color:#728064}h1{font:500 39px/1.18 Manrope,sans-serif;letter-spacing:-1.5px;margin:14px 0}p{color:#7c8578;line-height:1.6;margin:8px 0}.illustration{position:relative;width:270px;transform:rotate(-7deg)}.bottle{position:absolute;right:110px;top:42px;width:75px;height:145px;background:#a35538;border:8px solid #c17b53;border-radius:17px 17px 22px 22px;text-align:center;padding-top:45px;color:#fff0ce;font-weight:800;font-size:16px;box-shadow:12px 12px 0 #33452c15}.bottle:before{content:'';position:absolute;width:32px;height:42px;background:#6c7c50;left:13px;top:-39px;border-radius:6px 6px 0 0}.bottle small{font-size:8px}.jar{position:absolute;top:85px;right:7px;width:100px;height:115px;background:repeating-linear-gradient(70deg,#d8bf7b 0 6px,#e5d5a6 7px 13px);border:7px solid #d5d8b7;border-radius:10px 10px 20px 20px;color:#556343;text-align:center;padding-top:36px;font-size:12px;font-weight:bold}.jar:before{content:'';position:absolute;top:-18px;left:-7px;width:100px;height:15px;background:#657750;border-radius:5px}.leaf{position:absolute;right:10px;top:0;color:#9eaf79;font-size:65px}.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #e4e7dd;border-radius:12px;margin:25px 0 38px;background:#fff}.stats div{padding:20px 25px;display:flex;align-items:center;justify-content:space-between;border-right:1px solid #e4e7dd}.stats div:last-child{border:0}.stats span{font-size:10px;letter-spacing:1px;color:#7c8577}.stats strong{font:500 29px Manrope}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:16px}h2{font:600 23px Manrope;letter-spacing:-.6px;margin:0}h2 span{font:12px 'DM Sans';vertical-align:middle;background:#e9ede2;border-radius:20px;padding:4px 9px;margin-left:7px}.sectionhead p{font-size:12px}.actions{display:flex;gap:9px}button{transition:.15s}button:hover{filter:brightness(.96)}.primary,.secondary{padding:12px 17px;border-radius:7px;font-size:12px;font-weight:600}.primary{background:#294f3e;color:white;border:1px solid #294f3e}.secondary{background:transparent;color:#345341;border:1px solid #d7ded1}.tools{display:flex;gap:12px;margin:24px 0 18px}.search{display:flex;align-items:center;gap:12px;border:1px solid #e0e4d9;border-radius:8px;background:white;flex:1;padding:0 15px;font-size:23px;color:#7b8777}input,select{color:#40513f;background:#fff;border:1px solid #dfe4d7;border-radius:7px;padding:12px;min-width:0}.search input{width:100%;border:0;outline:none;padding:14px 0;font-size:12px}.tools select{font-size:12px}.filters{display:flex;gap:8px;margin-bottom:22px;overflow:auto}.filters button{white-space:nowrap;border:0;background:none;color:#82897c;font-size:12px;padding:8px 15px;border-radius:6px}.filters button.active{background:#e8eddc;color:#3d5a38;font-weight:600}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:#fff;border:1px solid #e3e6dc;border-radius:12px;overflow:hidden}.productart{height:130px;background:#f1eee5;display:flex;justify-content:center;align-items:center;font-size:62px;position:relative}.card:nth-child(3n+2) .productart{background:#edf0e8}.card:nth-child(3n) .productart{background:#f1eae3}.tag{position:absolute;top:12px;left:12px;background:#fff9;border-radius:4px;padding:4px 7px;font-size:9px;color:#6e7866}.cardbody{padding:17px}.card h3{font:600 15px Manrope;margin:0 0 5px}.card p{font-size:11px;margin:0 0 16px}.cardbottom{display:flex;justify-content:space-between;align-items:center}.stock{font-size:10px;color:#6c8b58}.stock.low{color:#b27a39}.stepper{display:flex;align-items:center;gap:12px}.stepper button{border:1px solid #dfe5d8;border-radius:5px;width:27px;height:27px;background:#fafbf7;color:#48603d}.stepper span{font-size:12px;min-width:10px;text-align:center}.extra{display:flex;justify-content:space-between;margin-top:14px;border-top:1px solid #eef0e9;padding-top:10px}.extra button{border:0;background:none;font-size:10px;color:#7b8574;padding:3px}.empty{grid-column:1/-1;text-align:center;padding:50px;background:#eef1e6;border-radius:12px}footer{font-size:10px;color:#8b9384;margin:35px 0;display:flex;justify-content:space-between}dialog{border:1px solid #dfe5d7;border-radius:15px;padding:26px;width:430px;max-width:92vw;color:#294f3e}dialog::backdrop{background:#18372766;backdrop-filter:blur(3px)}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.close{border:0;background:none;font-size:20px;color:#76866b}form label{display:flex;flex-direction:column;gap:7px;font-size:12px;margin:15px 0}.formrow{display:flex;gap:15px}.formrow label{flex:1}.wide{width:100%}.hint{font-size:11px;margin-bottom:20px}video{width:100%;border-radius:8px;background:#1b3024;min-height:180px}#scanstatus{font-size:12px;margin:15px 0}#toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#294f3e;color:white;padding:13px 22px;border-radius:8px;display:none;z-index:10}@media(min-width:1500px){main{margin-right:auto}}@media(max-width:1100px){aside{width:190px;padding:30px 18px}main{margin-left:190px;padding:28px}.grid{grid-template-columns:repeat(2,1fr)}.sectionhead{align-items:flex-start;flex-direction:column}.illustration{width:200px}}@media(max-width:650px){aside{position:static;width:100%;padding:18px;display:block;border:0}.brand{font-size:27px}.brand span,.asidebottom{display:none}nav{margin-top:15px;display:flex;gap:8px}nav button{padding:10px}main{margin:0;padding:20px 17px}header{font-size:8px}.intro{padding:25px 22px;min-height:220px;margin-top:22px}h1{font-size:29px}.illustration{width:75px;opacity:.55;margin-right:-45px;transform:scale(.75) rotate(-7deg);transform-origin:right bottom}.intro>div:first-child{z-index:1}.stats div{padding:14px 10px;display:block}.stats span{font-size:8px;display:block}.stats strong{font-size:24px;display:block;margin-top:6px}.stats{margin-bottom:28px}.actions{width:100%}.actions button{flex:1;padding:12px 8px}.grid{gap:10px}.productart{height:115px;font-size:52px}.cardbody{padding:12px}.card h3{font-size:13px}.cardbottom{gap:6px;flex-wrap:wrap}.tools select{max-width:110px;padding:8px;font-size:10px}.search{padding:0 9px}.search input{font-size:10px}.filters{gap:0}.filters button{padding:8px 12px}.local{font-size:8px}.extra{gap:5px}.extra button{font-size:9px}}
-</style><body><aside><a class="brand" href="#">◈ hemma<span>Lite mer koll. Lite mindre svinn.</span></a><nav><button class="active" data-view="all">▦ &nbsp; Mitt lager</button><button data-view="shopping">☷ &nbsp; Att handla <b id="badge">0</b></button></nav><div class="asidebottom">Ditt hem, i ordning.<small>Lagras på den här enheten</small></div></aside><main><header><span>MITT HEM / SKAFFERIET</span><span class="local">● Sparas på din enhet</span></header><section class="intro"><div><div class="eyebrow">HEJ, HEMMAKOCKEN</div><h1>Koll på det du<br>redan har hemma.</h1><p>Ett litet lager. En enklare vardag.</p></div><div class="illustration"><div class="bottle">SAFT<br><small>HALLON</small></div><div class="jar">PASTA</div><div class="leaf">✳</div></div></section><section class="stats"><div><span>VAROR I LAGRET</span><strong id="total">0</strong></div><div><span>BÖRJAR TA SLUT</span><strong id="low">0</strong></div><div><span>ATT HANDLA</span><strong id="shopcount">0</strong></div></section><section class="inventory"><div class="sectionhead"><div><h2 id="viewtitle">Mitt lager <span id="count"></span></h2><p id="viewdesc">Allt du har, samlat på ett ställe.</p></div><div class="actions"><button id="add" class="secondary">＋ Lägg till vara</button><button id="scan" class="primary">▥ Skanna streckkod</button></div></div><div class="tools"><label class="search">⌕ <input id="search" placeholder="Har jag saft hemma? Sök bland dina varor…"></label><select id="sort" aria-label="Sortera"><option value="name">Namn A–Ö</option><option value="qty">Lägst antal först</option></select></div><div class="filters" id="filters"><button class="active" data-cat="Alla">Alla varor</button><button data-cat="Skafferi">Skafferi</button><button data-cat="Kylskåp">Kylskåp</button><button data-cat="Frys">Frys</button><button data-cat="Övrigt">Övrigt</button></div><div id="grid" class="grid"></div></section><footer>En vara mindre att fundera på. <span>Hemma ↗</span></footer></main><dialog id="editor"><form id="form"><div class="modalhead"><h2>Lägg till vara</h2><button type="button" class="close">✕</button></div><label>Varans namn<input name="name" required maxlength="80" placeholder="T.ex. hallonsaft"></label><label>Streckkod<input name="code" inputmode="numeric" maxlength="30" placeholder="Skanna eller skriv in kod"></label><div class="formrow"><label>Antal<input name="qty" type="number" min="0" max="9999" value="1" required></label><label>Förvaring<select name="cat"><option>Skafferi</option><option>Kylskåp</option><option>Frys</option><option>Övrigt</option></select></label></div><p class="hint">En kod som redan finns lägger till antalet på den varan.</p><button class="primary wide">Spara vara</button></form></dialog><dialog id="scanner"><div class="modalhead"><h2>Skanna streckkod</h2><button class="close">✕</button></div><video id="video" autoplay playsinline muted></video><p id="scanstatus">Rikta kameran mot varans streckkod.</p><button id="manual" class="secondary wide">Skriv in streckkoden istället</button></dialog><div id="toast" role="status"></div><script>const $=s=>document.querySelector(s), key='hemma-inventory-v1';let items=[],view='all',cat='Alla',stream=null,scanning=false,timer;
+
+[hidden]{display:none!important}
+#scanner{width:480px;padding:22px}
+#scanner .modalhead h2{font-size:21px}
+.camera-preview{position:relative;background:#182c22;border-radius:12px;overflow:hidden;aspect-ratio:4/3}
+.camera-preview video{display:block;width:100%;height:100%;object-fit:cover;border-radius:0;min-height:0}
+.scan-frame{position:absolute;inset:28% 8%;border:2px solid #e9f3d1;border-radius:12px;box-shadow:0 0 0 100vmax #10241a45;pointer-events:none}
+.scan-frame:after{content:'';position:absolute;left:8%;right:8%;top:50%;height:2px;background:#ccdf9a}
+#scanstatus{min-height:3.2em;line-height:1.5}
+.scan-controls{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.scan-controls button{flex:1;min-height:44px}
+#scanresult{padding:14px;background:#e5eddc;border:1px solid #cedcbe;border-radius:8px;font-weight:600;line-height:1.5;overflow-wrap:anywhere}
+#scanagainlabel{display:flex;flex-direction:row;align-items:center;gap:10px;margin-bottom:20px}
+#scanagain{width:18px;height:18px;accent-color:#294f3e}
+.camera-note{font-size:11px}
+@media(max-width:650px){#scanner{padding:18px}.stepper button{width:34px;height:34px}}
+</style><body><aside><a class="brand" href="#">◈ hemma<span>Lite mer koll. Lite mindre svinn.</span></a><nav><button class="active" data-view="all">▦ &nbsp; Mitt lager</button><button data-view="shopping">☷ &nbsp; Att handla <b id="badge">0</b></button></nav><div class="asidebottom">Ditt hem, i ordning.<small>Lagras på den här enheten</small></div></aside><main><header><span>MITT HEM / SKAFFERIET</span><span class="local">● Sparas på din enhet</span></header><section class="intro"><div><div class="eyebrow">HEJ, HEMMAKOCKEN</div><h1>Koll på det du<br>redan har hemma.</h1><p>Ett litet lager. En enklare vardag.</p></div><div class="illustration"><div class="bottle">SAFT<br><small>HALLON</small></div><div class="jar">PASTA</div><div class="leaf">✳</div></div></section><section class="stats"><div><span>VAROR I LAGRET</span><strong id="total">0</strong></div><div><span>BÖRJAR TA SLUT</span><strong id="low">0</strong></div><div><span>ATT HANDLA</span><strong id="shopcount">0</strong></div></section><section class="inventory"><div class="sectionhead"><div><h2 id="viewtitle">Mitt lager <span id="count"></span></h2><p id="viewdesc">Allt du har, samlat på ett ställe.</p></div><div class="actions"><button id="add" class="secondary">＋ Lägg till vara</button><button id="scan" class="primary">▥ Skanna streckkod</button></div></div><div class="tools"><label class="search">⌕ <input id="search" placeholder="Har jag saft hemma? Sök bland dina varor…"></label><select id="sort" aria-label="Sortera"><option value="name">Namn A–Ö</option><option value="qty">Lägst antal först</option></select></div><div class="filters" id="filters"><button class="active" data-cat="Alla">Alla varor</button><button data-cat="Skafferi">Skafferi</button><button data-cat="Kylskåp">Kylskåp</button><button data-cat="Frys">Frys</button><button data-cat="Övrigt">Övrigt</button></div><div id="grid" class="grid"></div></section><footer>En vara mindre att fundera på. <span>Hemma ↗</span></footer></main><dialog id="editor"><form id="form"><div class="modalhead"><h2>Lägg till vara</h2><button type="button" class="close">✕</button></div><label>Varans namn<input name="name" required maxlength="80" placeholder="T.ex. hallonsaft"></label><label>Streckkod<input name="code" inputmode="numeric" maxlength="30" placeholder="Skanna eller skriv in kod"></label><div class="formrow"><label>Antal<input name="qty" type="number" min="0" max="9999" value="1" required></label><label>Förvaring<select name="cat"><option>Skafferi</option><option>Kylskåp</option><option>Frys</option><option>Övrigt</option></select></label></div><p class="hint">En kod som redan finns lägger till antalet på den varan.</p><label id="scanagainlabel" hidden><input id="scanagain" type="checkbox" checked>Fortsätt skanna efter att jag sparat</label><button class="primary wide">Spara vara</button></form></dialog><dialog id="scanner" aria-labelledby="camera-title"><div class="modalhead"><h2 id="camera-title">Skanna med kameran</h2><button class="close" aria-label="Stäng kameran">✕</button></div><div class="camera-preview"><video id="video" autoplay playsinline muted></video><div class="scan-frame" aria-hidden="true"></div></div><p id="scanstatus" role="status" aria-live="polite">Rikta kameran mot varans streckkod.</p><div id="scanresult" role="status" hidden></div><div class="scan-controls"><button id="scannext" class="primary" hidden>Skanna nästa</button><button id="retrycamera" class="primary" hidden>Försök igen</button><button id="torch" class="secondary" aria-pressed="false" hidden>Tänd lampan</button></div><button id="manual" class="secondary wide">Skriv in streckkoden istället</button><p class="camera-note">En ny streckkod får du namnge första gången.</p></dialog><div id="toast" role="status"></div><script>const $=s=>document.querySelector(s), key='hemma-inventory-v1';let items=[],view='all',cat='Alla',stream=null,scanning=false,timer;
 try{items=JSON.parse(localStorage.getItem(key)||'[]');if(!Array.isArray(items))items=[]}catch{items=[]}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function toast(t){$('#toast').textContent=t;$('#toast').style.display='block';clearTimeout(timer);timer=setTimeout(()=>$('#toast').style.display='none',3000)}
 function save(){try{localStorage.setItem(key,JSON.stringify(items))}catch{toast('Kunde inte spara. Webbläsarens lagring är full eller blockerad.')}render()}
 function emoji(i){let n=i.name.toLowerCase();return /saft|juice|dryck/.test(n)?'🧃':/mjölk/.test(n)?'🥛':/pasta/.test(n)?'🍝':/ris/.test(n)?'🍚':/kaffe/.test(n)?'☕':/ägg/.test(n)?'🥚':/bröd/.test(n)?'🍞':/tomat/.test(n)?'🍅':/ost/.test(n)?'🧀':i.cat==='Frys'?'🧊':'🫙'}
 function render(){let q=$('#search').value.toLocaleLowerCase('sv');let list=items.filter(i=>(view==='all'||i.shop)&&(cat==='Alla'||i.cat===cat)&&(i.name.toLocaleLowerCase('sv').includes(q)||i.code.includes(q)));list.sort((a,b)=>$('#sort').value==='qty'?a.qty-b.qty:a.name.localeCompare(b.name,'sv'));$('#total').textContent=items.reduce((n,i)=>n+i.qty,0);$('#low').textContent=items.filter(i=>i.qty<=1).length;$('#badge').textContent=$('#shopcount').textContent=items.filter(i=>i.shop).length;$('#count').textContent=list.length;$('#viewtitle').firstChild.textContent=view==='all'?'Mitt lager ':'Att handla ';$('#viewdesc').textContent=view==='all'?'Allt du har, samlat på ett ställe.':'Dina varor att fylla på nästa gång.';$('#grid').innerHTML=list.length?list.map(i=>`<article class="card"><div class="productart"><span class="tag">${esc(i.cat)}</span><span aria-hidden="true">${emoji(i)}</span></div><div class="cardbody"><h3>${esc(i.name)}</h3><p>${i.code?'Streckkod '+esc(i.code):'Tillagd manuellt'}</p><div class="cardbottom"><span class="stock ${i.qty<=1?'low':''}">${i.qty===0?'○ Slut hemma':i.qty===1?'◐ Sista kvar':'● Finns hemma'}</span><div class="stepper"><button data-id="${i.id}" data-act="minus" aria-label="Minska antal för ${esc(i.name)}" ${i.qty===0?'disabled':''}>−</button><span>${i.qty}</span><button data-id="${i.id}" data-act="plus" aria-label="Öka antal för ${esc(i.name)}">+</button></div></div><div class="extra"><button data-id="${i.id}" data-act="shop">${i.shop?'✓ På inköpslistan':'＋ Att handla'}</button><button data-id="${i.id}" data-act="delete">Ta bort</button></div></div></article>`).join(''):`<div class="empty"><h3>${items.length?'Inga varor hittades':'Välkommen till ditt hemmalager'}</h3><p>${items.length?'Prova en annan sökning eller kategori.':'Skanna din första vara eller lägg till den manuellt.'}</p>${items.length?'':'<button class="primary" id="firstadd">＋ Lägg till din första vara</button>'}</div>`;$('#firstadd')?.addEventListener('click',()=>openForm())}
-function openForm(code=''){ $('#form').reset();$('#form').elements.code.value=code;$('#editor').showModal();$('#form').elements.name.focus()}
+function openForm(code=''){resumeAfterSave=false;$('#scanagainlabel').hidden=true; $('#form').reset();$('#form').elements.code.value=code;$('#editor').showModal();$('#form').elements.name.focus()}
 $('#add').onclick=()=>openForm();$('#search').oninput=render;$('#sort').onchange=render;
 $('#filters').onclick=e=>{if(!e.target.dataset.cat)return;cat=e.target.dataset.cat;$('#filters .active').classList.remove('active');e.target.classList.add('active');render()};document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{view=b.dataset.view;document.querySelector('nav .active').classList.remove('active');b.classList.add('active');render()});
 $('#grid').onclick=e=>{let b=e.target.closest('[data-act]');if(!b)return;let i=items.find(i=>i.id===b.dataset.id);if(!i)return;switch(b.dataset.act){case 'plus':i.qty=Math.min(9999,i.qty+1);break;case 'minus':i.qty=Math.max(0,i.qty-1);break;case 'shop':i.shop=!i.shop;break;case 'delete':if(!confirm('Ta bort '+i.name+' från lagret?'))return;items=items.filter(x=>x.id!==i.id)}save()};
-$('#form').onsubmit=e=>{e.preventDefault();let d=new FormData(e.target),name=d.get('name').trim(),code=d.get('code').trim(),qty=Number(d.get('qty'));if(!name||!Number.isInteger(qty)||qty<0||qty>9999)return;let existing=code&&items.find(i=>i.code===code);if(existing){existing.qty=Math.min(9999,existing.qty+qty)}else items.push({id:crypto.randomUUID(),name,code,qty,cat:d.get('cat'),shop:false});save();$('#editor').close();toast(existing?'Antalet har uppdaterats':'Varan har lagts till')};
+$('#form').onsubmit=e=>{e.preventDefault();let d=new FormData(e.target),name=d.get('name').trim(),code=d.get('code').trim(),qty=Number(d.get('qty'));if(!name||!Number.isInteger(qty)||qty<0||qty>9999)return;let existing=code&&items.find(i=>i.code===code);if(existing){existing.qty=Math.min(9999,existing.qty+qty)}else items.push({id:crypto.randomUUID(),name,code,qty,cat:d.get('cat'),shop:false});const keepScanning=resumeAfterSave&&$('#scanagain').checked;resumeAfterSave=false;save();$('#editor').close();toast(existing?'Antalet har uppdaterats':'Varan har lagts till');if(keepScanning)startScanner()};
 document.querySelectorAll('.close').forEach(b=>b.onclick=()=>b.closest('dialog').close());
-function stopCamera(){scanning=false;stream?.getTracks().forEach(t=>t.stop());stream=null;$('#video').srcObject=null}$('#scanner').addEventListener('close',stopCamera);
-function found(code){stopCamera();$('#scanner').close();let i=items.find(i=>i.code===code);if(i){i.qty=Math.min(9999,i.qty+1);save();toast(i.name+' · +1 i lagret')}else openForm(code)}
-$('#manual').onclick=()=>{stopCamera();$('#scanner').close();openForm();$('#form').elements.code.focus()};
-$('#scan').onclick=async()=>{$('#scanner').showModal();$('#scanstatus').textContent='Startar kameran…';if(!('BarcodeDetector' in window)){$('#scanstatus').textContent='Din webbläsare stöder inte kameraskanning. Skriv in streckkoden nedan, eller prova Chrome på Android.';return}try{const formats=await BarcodeDetector.getSupportedFormats();const supported=['ean_13','ean_8','upc_a','upc_e','code_128'].filter(f=>formats.includes(f));if(!supported.length)throw Error();const detector=new BarcodeDetector({formats:supported});stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}},audio:false});if(!$('#scanner').open){stopCamera();return}$('#video').srcObject=stream;await $('#video').play();scanning=true;$('#scanstatus').textContent='Rikta kameran mot streckkoden. En skanning lägger till en vara.';async function tick(){if(!scanning)return;try{const codes=await detector.detect($('#video'));if(codes.length){found(codes[0].rawValue);return}}catch{}if(scanning)setTimeout(tick,250)}tick()}catch{stopCamera();$('#scanstatus').textContent='Kameran kunde inte startas. Tillåt kameraåtkomst eller skriv in koden manuellt.'}};
-window.addEventListener('pagehide',stopCamera);render();
+// Camera sessions are invalidated on close, including pending permission requests.
+let cameraSession = 0, scanReady = false, decoderControls = null;
+let fallbackLoad = null, torchOn = false, resumeAfterSave = false;
+const cameraMessage = 'Håll streckkoden innanför ramen. Flytta mobilen långsamt tills bilden är skarp.';
+const decoderUrl = 'https://cdn.jsdelivr.net/npm/@zxing/browser@0.1.5/umd/zxing-browser.min.js';
+
+function loadDecoder() {
+  if (window.ZXingBrowser) return Promise.resolve(window.ZXingBrowser);
+  if (fallbackLoad) return fallbackLoad;
+  fallbackLoad = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = decoderUrl;
+    script.crossOrigin = 'anonymous';
+    script.integrity = 'sha384-ylLhng89kD62+PVK1cjm4rAYg69zDlGrbbSfAE2Eb8Xqf8RoAQCMcRoUXZh7pAPC';
+    const timeout = setTimeout(() => failed(), 15000);
+    function failed() {
+      clearTimeout(timeout);
+      script.remove();
+      fallbackLoad = null;
+      reject(Object.assign(new Error('Decoder unavailable'), { name: 'DecoderLoadError' }));
+    }
+    script.onerror = failed;
+    script.onload = () => {
+      clearTimeout(timeout);
+      if (window.ZXingBrowser) resolve(window.ZXingBrowser);
+      else failed();
+    };
+    document.head.appendChild(script);
+  });
+  return fallbackLoad;
+}
+
+function cameraActive(session) {
+  return cameraSession === session && $('#scanner').open && scanning;
+}
+
+function stopCamera() {
+  cameraSession++;
+  scanReady = scanning = false;
+  try { decoderControls?.stop(); } catch {}
+  decoderControls = null;
+  stream?.getTracks().forEach(t => t.stop());
+  stream = null;
+  $('#video').srcObject = null;
+  torchOn = false;
+  $('#torch').hidden = true;
+  $('#torch').setAttribute('aria-pressed', 'false');
+  $('#torch').textContent = 'Tänd lampan';
+}
+
+function showCameraError(error, session) {
+  if (cameraSession !== session || !$('#scanner').open) return;
+  stopCamera();
+  const messages = {
+    NotAllowedError: 'Kameran är blockerad. Tillåt kamera för den här sidan i webbläsarens inställningar och försök igen.',
+    NotFoundError: 'Ingen kamera hittades. Prova på mobilen eller skriv in koden manuellt.',
+    NotReadableError: 'Kameran används kanske av en annan app. Stäng den och försök igen.',
+    SecurityError: 'Öppna appen i Safari eller Chrome via HTTPS för att använda kameran.',
+    DecoderLoadError: 'Streckkodsläsaren kunde inte laddas. Kontrollera internetanslutningen och försök igen.'
+  };
+  $('#scanstatus').textContent = messages[error.name] || 'Kameran kunde inte startas. Prova igen eller skriv in streckkoden manuellt.';
+  $('#retrycamera').hidden = false;
+}
+
+function found(code, session) {
+  if (!cameraActive(session) || !scanReady || !code) return;
+  scanReady = false;
+  code = String(code).trim();
+  const item = items.find(i => i.code === code || (code.length === 12 && i.code === '0' + code) || (code.length === 13 && code[0] === '0' && i.code === code.slice(1)));
+  if (!item) {
+    stopCamera();
+    $('#scanner').close();
+    openForm(code);
+    resumeAfterSave = true;
+    $('#scanagainlabel').hidden = false;
+    $('#scanagain').checked = true;
+    return;
+  }
+  const full = item.qty >= 9999;
+  item.qty = Math.min(9999, item.qty + 1);
+  save();
+  $('#scanresult').textContent = full ? item.name + ' · maxantal 9999' : '✓ ' + item.name + ' · +1 (nu ' + item.qty + ' hemma)';
+  $('#scanresult').hidden = false;
+  $('#scannext').hidden = false;
+  $('#scanstatus').textContent = 'Varan är avläst. Flytta fram nästa vara och tryck på Skanna nästa.';
+  navigator.vibrate?.(80);
+}
+
+async function startFallback(session) {
+  $('#scanstatus').textContent = 'Förbereder streckkodsläsaren…';
+  const z = await loadDecoder();
+  if (!cameraActive(session)) return;
+  const reader = new z.BrowserMultiFormatReader(undefined, {
+    delayBetweenScanAttempts: 200, delayBetweenScanSuccess: 400
+  });
+  reader.possibleFormats = [z.BarcodeFormat.EAN_13, z.BarcodeFormat.EAN_8,
+    z.BarcodeFormat.UPC_A, z.BarcodeFormat.UPC_E, z.BarcodeFormat.CODE_128];
+  $('#scanstatus').textContent = cameraMessage;
+  const controls = await reader.decodeFromVideoElement($('#video'), (result, error, controls) => {
+    if (!cameraActive(session)) { controls?.stop(); return; }
+    if (result) found(result.getText(), session);
+  });
+  if (!cameraActive(session)) { controls.stop(); return; }
+  decoderControls = controls;
+}
+
+async function startDecoder(session) {
+  let detector = null;
+  try {
+    if ('BarcodeDetector' in window) {
+      const formats = await BarcodeDetector.getSupportedFormats();
+      // Use the fallback if the native implementation lacks common food codes.
+      if (['ean_13', 'ean_8', 'upc_a', 'upc_e'].every(f => formats.includes(f))) {
+        detector = new BarcodeDetector({ formats: ['ean_13', 'ean_8', 'upc_a', 'upc_e', 'code_128'].filter(f => formats.includes(f)) });
+      }
+    }
+  } catch {}
+  if (!cameraActive(session)) return;
+  if (!detector) return startFallback(session);
+  $('#scanstatus').textContent = cameraMessage;
+  let errors = 0;
+  async function tick() {
+    if (!cameraActive(session)) return;
+    if (scanReady) {
+      try {
+        const codes = await detector.detect($('#video'));
+        errors = 0;
+        if (codes.length) found(codes[0].rawValue, session);
+      } catch {
+        if (++errors >= 3) {
+          try { await startFallback(session); }
+          catch (error) { showCameraError(error, session); }
+          return;
+        }
+      }
+    }
+    if (cameraActive(session)) setTimeout(tick, 200);
+  }
+  tick();
+}
+
+async function startScanner() {
+  stopCamera();
+  if (!$('#scanner').open) $('#scanner').showModal();
+  const session = cameraSession;
+  $('#scanstatus').textContent = 'Tillåt kameraåtkomst för att skanna dina varor.';
+  $('#retrycamera').hidden = $('#scannext').hidden = $('#scanresult').hidden = true;
+  if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
+    showCameraError({ name: 'SecurityError' }, session);
+    return;
+  }
+  try {
+    const openedStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } },
+      audio: false
+    });
+    if (cameraSession !== session || !$('#scanner').open) {
+      openedStream.getTracks().forEach(t => t.stop());
+      return;
+    }
+    stream = openedStream;
+    $('#video').srcObject = stream;
+    await $('#video').play();
+    if (cameraSession !== session || !$('#scanner').open) return;
+    scanning = scanReady = true;
+    const track = stream.getVideoTracks()[0];
+    $('#torch').hidden = !track?.getCapabilities?.().torch;
+    await startDecoder(session);
+  } catch (error) {
+    showCameraError(error, session);
+  }
+}
+
+$('#scanner').addEventListener('close', stopCamera);
+$('#scan').onclick = startScanner;
+$('#retrycamera').onclick = startScanner;
+$('#scannext').onclick = () => {
+  if (!scanning) return;
+  $('#scanresult').hidden = $('#scannext').hidden = true;
+  $('#scanstatus').textContent = cameraMessage;
+  scanReady = true;
+};
+$('#torch').onclick = async () => {
+  const track = stream?.getVideoTracks()[0];
+  const session = cameraSession;
+  if (!track) return;
+  $('#torch').disabled = true;
+  try {
+    const next = !torchOn;
+    await track.applyConstraints({ advanced: [{ torch: next }] });
+    if (session !== cameraSession) return;
+    torchOn = next;
+    $('#torch').textContent = torchOn ? 'Släck lampan' : 'Tänd lampan';
+    $('#torch').setAttribute('aria-pressed', String(torchOn));
+  } catch { toast('Lampan kunde inte ändras på den här kameran.'); }
+  finally { $('#torch').disabled = false; }
+};
+$('#manual').onclick = () => {
+  stopCamera();
+  $('#scanner').close();
+  openForm();
+  $('#form').elements.code.focus();
+};
+window.addEventListener('pagehide', stopCamera);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && $('#scanner').open) { stopCamera(); $('#scanner').close(); }
+});
+render();
 </script></body></html>
