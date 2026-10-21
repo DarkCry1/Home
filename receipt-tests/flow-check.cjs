@@ -1,0 +1,36 @@
+const vm=require('node:vm'),fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require('node:crypto').webcrypto;
+const index=fs.readFileSync(__dirname+'/../index.html','utf8');
+const app=index.split('<script>')[1].split('</script>')[0];
+const parser=fs.readFileSync(__dirname+'/../receipt-parser.js','utf8'),receipts=fs.readFileSync(__dirname+'/../receipts.js','utf8');
+const receiptText='ICA KVANTUM\n2026-10-21\nKaffe 2 st x 49,90 99,80\nMjölk 16,90\nPant 2,00\nSUMMA 118,70';
+function make(){
+ const elements=new Map(),timers=new Set(),listeners={};let storageBlocked=false,acceptDuplicate=true,confirmCalls=0,terminated=0,pdfDestroyed=0;
+ class El{constructor(id){this.id=id;this.value=id==='#sort'?'name':'';this.style={};this.open=false;this.hidden=false;this.firstChild={};this.classList={add(){},remove(){}};this.dataset={};this.events={};this.elements={code:{focus(){}},name:{focus(){}}};this.innerHTML=''}
+ addEventListener(n,f){(this.events[n]??=[]).push(f)}showModal(){this.open=true}close(){if(!this.open)return;this.open=false;for(const f of this.events.close||[])f()}
+ reset(){}focus(){}removeAttribute(n){delete this[n]}setAttribute(n,v){this[n]=v}click(){this.onclick?.()}remove(){}querySelector(s){return el(this.id+' '+s)}get lastElementChild(){return el(this.id+' last')}
+ getContext(){return {fillRect(){},translate(){},rotate(){},drawImage(){},getImageData(){return {data:new Uint8ClampedArray(4)}},putImageData(){}}}}
+ function el(s){if(!elements.has(s))elements.set(s,new El(s));return elements.get(s)}
+ const stored={'hemma-inventory-v1':JSON.stringify([{id:'coffee',name:'Kaffe',code:'1234',qty:3,cat:'Skafferi',shop:true}])};
+ const fakeWorker={async setParameters(p){assert.equal(p.tessedit_pageseg_mode,'6')},async recognize(){return {data:{text:receiptText}}},async terminate(){terminated++}};
+ const fakePdf={GlobalWorkerOptions:{},getDocument(){return {promise:Promise.resolve({numPages:1,async getPage(){return {async getTextContent(){return {items:[{str:'Kaffe 2 st x 49,90 99,80',transform:[1,0,0,1,0,100],height:10},{str:'Mjölk 16,90',transform:[1,0,0,1,0,80],height:10},{str:'SUMMA 116,70',transform:[1,0,0,1,0,60],height:10}]}},cleanup(){}}}}),async destroy(){pdfDestroyed++}}}};
+ const ctx={console,crypto,TextEncoder,DOMException,Date,Uint8Array,Uint8ClampedArray,Image:class{naturalWidth=1200;naturalHeight=2400;set src(v){queueMicrotask(()=>this.onload())}},URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},
+ navigator:{mediaDevices:{}},document:{hidden:false,querySelector:el,querySelectorAll:()=>[],createElement:id=>new El(id),head:{appendChild(){}},addEventListener(n,f){listeners[n]=f}},
+ localStorage:{getItem:k=>stored[k],setItem:(k,v)=>{if(storageBlocked)throw Error('Full');stored[k]=v}},
+ Tesseract:{async createWorker(){return fakeWorker}},confirm(){confirmCalls++;return acceptDuplicate},
+ addEventListener(n,f){listeners[n]=f},
+ setTimeout(fn,ms){const t=setTimeout(()=>{timers.delete(t);fn()},ms);timers.add(t);return t},clearTimeout(t){clearTimeout(t);timers.delete(t)},FormData:class{}};
+ ctx.window=ctx;vm.createContext(ctx);vm.runInContext(app,ctx);vm.runInContext(parser,ctx);vm.runInContext(receipts,ctx);vm.runInContext('loadReceiptPDF=async()=>testPDF',Object.assign(ctx,{testPDF:fakePdf}));
+ return {ctx,el,run:s=>vm.runInContext(s,ctx),stored,read:()=>JSON.parse(stored['hemma-inventory-v1']),block:v=>storageBlocked=v,accept:v=>acceptDuplicate=v,confirms:()=>confirmCalls,terminated:()=>terminated,pdfDestroyed:()=>pdfDestroyed,fakeWorker,cleanup(){ctx.cancelReceiptJob();for(const t of timers)clearTimeout(t)}};
+}
+(async()=>{
+ let t=make();t.ctx.openReceipt();t.el('#r-text').value=receiptText;await t.ctx.readReceipt();assert.equal(t.read().length,1,'review never mutates inventory');assert.equal(t.el('#r-review').hidden,false);assert.match(t.el('#r-rows').innerHTML,/Kaffe/);assert.equal(t.run('receiptRows[0].match'),'coffee');await t.ctx.commitReceipt();assert.equal(t.read()[0].qty,5);assert.equal(t.read().find(i=>i.name==='Mjölk').qty,1);assert.equal(t.read()[0].code,'1234');assert.equal(JSON.parse(t.stored['hemma-receipts-v1']).length,1);assert(!t.el('#receipt').open);assert(!t.stored['hemma-receipts-v1'].includes('SUMMA'),'raw receipt text is not persisted');
+ t.ctx.openReceipt();t.el('#r-text').value=receiptText;await t.ctx.readReceipt();t.accept(false);await t.ctx.commitReceipt();assert.equal(t.confirms(),1);assert.equal(t.read()[0].qty,5,'declined duplicate does not add stock');t.cleanup();
+ t=make();t.ctx.openReceipt();t.el('#r-text').value=receiptText;await t.ctx.readReceipt();t.run('receiptRows[1].selected=false');await t.ctx.commitReceipt();assert.equal(t.read().length,1,'unchecked item excluded');assert.equal(t.read()[0].qty,5);t.cleanup();
+ t=make();t.ctx.openReceipt();t.el('#r-text').value=receiptText;await t.ctx.readReceipt();t.block(true);await t.ctx.commitReceipt();assert.equal(t.read()[0].qty,3);assert.equal(t.run('items[0].qty'),3);assert(t.el('#receipt').open);assert.match(t.el('#r-error').textContent,/Inga varor importerades/);t.cleanup();
+ t=make();t.ctx.openReceipt();t.el('#r-text').value=receiptText;await t.ctx.readReceipt();t.run('receiptRows[0].qty=1.5');await t.ctx.commitReceipt();assert.equal(t.read()[0].qty,3);assert.match(t.el('#r-error').textContent,/Kontrollera/);t.cleanup();
+ t=make();t.ctx.openReceipt();const pdf={name:'kvitto.pdf',type:'application/pdf',size:100,async arrayBuffer(){return new Uint8Array([1,2,3]).buffer}};t.ctx.selectReceiptFile(pdf);await t.ctx.readReceipt();assert.equal(t.run('receiptRows.length'),2);assert.equal(t.terminated(),0,'text PDFs do not load OCR');assert.equal(t.pdfDestroyed(),1);await t.ctx.commitReceipt();assert.equal(t.read()[0].qty,5);t.cleanup();
+ t=make();t.ctx.openReceipt();t.ctx.selectReceiptFile({name:'kvitto.png',type:'image/png',size:100,async arrayBuffer(){return new Uint8Array([1,2,3]).buffer}});await t.ctx.readReceipt();assert.equal(t.run('receiptRows.length'),2);assert.equal(t.terminated(),1,'OCR worker is released after review');assert.equal(t.read()[0].qty,3);t.el('#receipt').close();assert.equal(t.read()[0].qty,3,'cancel before import preserves inventory');t.cleanup();
+ t=make();let resolveWorker;t.ctx.Tesseract.createWorker=()=>new Promise(r=>resolveWorker=r);t.ctx.openReceipt();t.ctx.selectReceiptFile({name:'photo.png',type:'image/png',size:100,async arrayBuffer(){return new Uint8Array([1,2,3]).buffer}});const reading=t.ctx.readReceipt();while(!resolveWorker)await new Promise(r=>setTimeout(r,1));t.ctx.cancelReceiptJob();resolveWorker(t.fakeWorker);await reading;await new Promise(r=>setTimeout(r,1));assert.equal(t.terminated(),1,'late OCR worker is terminated after cancellation');assert.equal(t.read()[0].qty,3);t.cleanup();
+ t=make();t.ctx.openReceipt();t.el('#r-text').value=receiptText;await t.ctx.readReceipt();const committing=t.ctx.commitReceipt();t.el('#receipt').close();t.ctx.openReceipt();await committing;assert.equal(t.read()[0].qty,3,'stale asynchronous import cannot change a reopened dialog');t.cleanup();
+ console.log('PASS: review-before-import, existing stock merge, exclusions, duplicate warning, storage failure, invalid quantities, PDF text, image OCR lifecycle, cancellation, and stale async import protection');
+})().catch(error=>{console.error(error);process.exit(1)});
